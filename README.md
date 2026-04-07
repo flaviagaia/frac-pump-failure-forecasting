@@ -31,6 +31,15 @@ Referência oficial:
 4. Converte a probabilidade em `forecast_band` e `health_score`.
 5. Exporta um resumo da frota pronto para decisão operacional.
 
+### Arquitetura conceitual
+```mermaid
+flowchart LR
+    A["Frac pump telemetry windows"] --> B["Feature preparation"]
+    B --> C["Failure-next-window model"]
+    C --> D["Probability forecast"]
+    D --> E["Pump priority summary"]
+```
+
 ### Estrutura do projeto
 - `main.py`: entry point local.
 - `src/sample_data.py`: gera a base sintética inspirada em manutenção industrial.
@@ -81,6 +90,14 @@ O projeto gera duas visões:
 
 Essa segunda visão é a mais próxima do uso real em uma control tower de manutenção.
 
+### Contrato de saída
+Artefatos principais:
+- [frac_pump_scored_windows.csv](/Users/flaviagaia/Documents/CV_FLAVIA_CODEX/frac-pump-failure-forecasting/data/processed/frac_pump_scored_windows.csv)
+- [pump_failure_forecast_summary.csv](/Users/flaviagaia/Documents/CV_FLAVIA_CODEX/frac-pump-failure-forecasting/data/processed/pump_failure_forecast_summary.csv)
+- [frac_pump_failure_forecast_report.json](/Users/flaviagaia/Documents/CV_FLAVIA_CODEX/frac-pump-failure-forecasting/data/processed/frac_pump_failure_forecast_report.json)
+
+O resumo final por bomba foi pensado para responder “quem precisa entrar primeiro na próxima janela de intervenção?”.
+
 ### Resultados atuais
 - `dataset_source = frac_pump_failure_sample_ai4i_style`
 - `row_count = 635`
@@ -108,6 +125,12 @@ No nível avançado, ele permite discutir:
 - governança de sinais industriais;
 - monitoramento de drift;
 - escalabilidade por spread, poço ou região.
+
+### Como falar deste projeto em entrevista
+- ele trata falha como problema de próxima janela, não apenas de estado atual;
+- usa sinais compatíveis com pressure pumping, como pressão, vibração e lubrificação;
+- produz um forecast operacional por bomba;
+- ajuda a discutir latência, priorização de ativos e readiness de frota.
 
 ### Batch vs stream
 - `batch`:
@@ -152,6 +175,12 @@ The project is technically framed around the **AI4I 2020 Predictive Maintenance 
 3. Scores the latest observed window of each pump.
 4. Converts probabilities into `forecast_band` and `health_score`.
 5. Exports a fleet summary for operational prioritization.
+
+### Output contract
+The project exports:
+- [frac_pump_scored_windows.csv](/Users/flaviagaia/Documents/CV_FLAVIA_CODEX/frac-pump-failure-forecasting/data/processed/frac_pump_scored_windows.csv)
+- [pump_failure_forecast_summary.csv](/Users/flaviagaia/Documents/CV_FLAVIA_CODEX/frac-pump-failure-forecasting/data/processed/pump_failure_forecast_summary.csv)
+- [frac_pump_failure_forecast_report.json](/Users/flaviagaia/Documents/CV_FLAVIA_CODEX/frac-pump-failure-forecasting/data/processed/frac_pump_failure_forecast_report.json)
 
 ### Current results
 - `dataset_source = frac_pump_failure_sample_ai4i_style`
