@@ -1,0 +1,7 @@
+{
+  "dataset_name": "AI4I 2020 Predictive Maintenance Dataset",
+  "dataset_owner": "UCI Machine Learning Repository",
+  "dataset_reference": "AI4I 2020 Predictive Maintenance Dataset",
+  "dataset_url": "https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset",
+  "dataset_note": "This project uses a compact local telemetry sample inspired by public industrial predictive-maintenance datasets, adapted to a frac pump failure forecasting framing for deterministic execution."
+}
