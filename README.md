@@ -73,7 +73,7 @@ Essa modelagem é adequada para o MVP porque:
 - lida bem com sinais heterogêneos;
 - capta interações entre pressão, vibração, temperatura e desgaste;
 - gera bom baseline sem tuning pesado;
-- é fácil de explicar em entrevista e discussão arquitetural.
+- é fácil de explicar em revisão técnica e discussão arquitetural.
 
 ### Saídas operacionais
 O projeto gera duas visões:
@@ -92,9 +92,9 @@ Essa segunda visão é a mais próxima do uso real em uma control tower de manut
 
 ### Contrato de saída
 Artefatos principais:
-- [frac_pump_scored_windows.csv](/Users/flaviagaia/Documents/CV_FLAVIA_CODEX/frac-pump-failure-forecasting/data/processed/frac_pump_scored_windows.csv)
-- [pump_failure_forecast_summary.csv](/Users/flaviagaia/Documents/CV_FLAVIA_CODEX/frac-pump-failure-forecasting/data/processed/pump_failure_forecast_summary.csv)
-- [frac_pump_failure_forecast_report.json](/Users/flaviagaia/Documents/CV_FLAVIA_CODEX/frac-pump-failure-forecasting/data/processed/frac_pump_failure_forecast_report.json)
+- [frac_pump_scored_windows.csv](data/processed/frac_pump_scored_windows.csv)
+- [pump_failure_forecast_summary.csv](data/processed/pump_failure_forecast_summary.csv)
+- [frac_pump_failure_forecast_report.json](data/processed/frac_pump_failure_forecast_report.json)
 
 O resumo final por bomba foi pensado para responder “quem precisa entrar primeiro na próxima janela de intervenção?”.
 
@@ -125,12 +125,6 @@ No nível avançado, ele permite discutir:
 - governança de sinais industriais;
 - monitoramento de drift;
 - escalabilidade por spread, poço ou região.
-
-### Como falar deste projeto em entrevista
-- ele trata falha como problema de próxima janela, não apenas de estado atual;
-- usa sinais compatíveis com pressure pumping, como pressão, vibração e lubrificação;
-- produz um forecast operacional por bomba;
-- ajuda a discutir latência, priorização de ativos e readiness de frota.
 
 ### Batch vs stream
 - `batch`:
@@ -178,9 +172,9 @@ The project is technically framed around the **AI4I 2020 Predictive Maintenance 
 
 ### Output contract
 The project exports:
-- [frac_pump_scored_windows.csv](/Users/flaviagaia/Documents/CV_FLAVIA_CODEX/frac-pump-failure-forecasting/data/processed/frac_pump_scored_windows.csv)
-- [pump_failure_forecast_summary.csv](/Users/flaviagaia/Documents/CV_FLAVIA_CODEX/frac-pump-failure-forecasting/data/processed/pump_failure_forecast_summary.csv)
-- [frac_pump_failure_forecast_report.json](/Users/flaviagaia/Documents/CV_FLAVIA_CODEX/frac-pump-failure-forecasting/data/processed/frac_pump_failure_forecast_report.json)
+- [frac_pump_scored_windows.csv](data/processed/frac_pump_scored_windows.csv)
+- [pump_failure_forecast_summary.csv](data/processed/pump_failure_forecast_summary.csv)
+- [frac_pump_failure_forecast_report.json](data/processed/frac_pump_failure_forecast_report.json)
 
 ### Current results
 - `dataset_source = frac_pump_failure_sample_ai4i_style`
